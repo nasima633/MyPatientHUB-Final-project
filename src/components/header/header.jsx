@@ -5,44 +5,27 @@ export default function Header({ pageTitle,onMenuClick,searchText, onSearchChang
 
     function handleNotifications() {
 
-        alert(
-            "This feature will be added in the future."
-        );
-
+        alert( "This feature will be added in the future." );
     }
 
     function handleSettings() {
 
-        alert(
-            "Settings will be added in future!"
-        );
+        alert( "Settings will be added in future!");
 
     }
 
     function handleLogout() {
-
-        const confirmLogOut = confirm(
-            "ARE YOU SURE TO LOG OUT ?"
-        );
-
-
-        if (confirmLogOut) {
-             onLogout();
-        }
+        const confirmLogOut = confirm("ARE YOU SURE TO LOG OUT ?");
+        if (confirmLogOut) { onLogout();}
     }
 
     return (
 
         <header className="dashboard-header"id="dashboard-header" >
-
             <div className="header-left" id="header-left" >
-
                 <div className="info-left-header"id="info-left-header" >
-
                     <span id="info-home"> ⌂ </span>
-
                     <span id="info-separator">/ </span>
-
                     <span id="info-current"> {pageTitle}  </span>
                  </div>
 
