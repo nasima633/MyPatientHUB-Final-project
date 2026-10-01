@@ -1,0 +1,487 @@
+
+.find-clinic-page {
+    width: 100%;
+    min-height: calc(100vh - 85px);
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+.clinic-page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.clinic-page-heading h2 {
+    margin: 0 0 6px;
+    color: #344767;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.clinic-page-heading p {
+    margin: 0;
+    color: #67748e;
+    font-size: 13px;
+}
+
+.clinic-search-panel {
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 220px 120px;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 25px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.clinic-search-field,
+.clinic-filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.clinic-search-field label,
+.clinic-filter-field label {
+    color: #344767;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.clinic-input-wrapper {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 13px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+.clinic-input-wrapper:focus-within {
+    border-color: #b000a8;
+    box-shadow: 0 0 0 2px rgba(176, 0, 168, 0.08);
+}
+
+.clinic-search-icon {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.clinic-input-wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #344767;
+    font-size: 13px;
+}
+
+.clinic-input-wrapper input::placeholder {
+    color: #adb5bd;
+}
+
+.clinic-filter-field select {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #67748e;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.clinic-filter-field select:focus {
+    border-color: #b000a8;
+}
+
+.clinic-search-button {
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(
+        135deg,
+        #b000a8,
+        #e40078
+    );
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.clinic-search-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(228, 0, 120, 0.2);
+}
+
+.clinic-content {
+    display: grid;
+    grid-template-columns: minmax(360px, 0.95fr) minmax(400px, 1.25fr);
+    gap: 22px;
+    align-items: start;
+}
+
+
+.clinic-results {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.clinic-results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.clinic-results-header h3,
+.clinic-map-heading h3 {
+    margin: 0 0 5px;
+    color: #344767;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.clinic-results-header p,
+.clinic-map-heading p {
+    margin: 0;
+    color: #67748e;
+    font-size: 12px;
+}
+
+
+.clinic-card {
+    display: flex;
+    gap: 15px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    transition: 0.25s ease;
+}
+
+.clinic-card:hover,
+.clinic-card.selected {
+    border-color: rgba(176, 0, 168, 0.3);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.clinic-icon {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #b000a8,
+        #e40078
+    );
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.clinic-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.clinic-information h3 {
+    margin: 0 0 4px;
+    color: #344767;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.clinic-type {
+    margin: 0 0 7px;
+    color: #e40078;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.clinic-location {
+    margin: 0 0 7px;
+    color: #67748e;
+    font-size: 12px;
+}
+
+.clinic-services {
+    margin: 0 0 10px;
+    color: #67748e;
+    font-size: 11px;
+}
+
+.clinic-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+
+.clinic-meta span {
+    color: #67748e;
+    font-size: 11px;
+}
+
+.clinic-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.clinic-actions button {
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.view-clinic-button {
+    border: 1px solid #dfe3e8;
+    background: #ffffff;
+    color: #67748e;
+}
+
+.view-clinic-button:hover {
+    border-color: #b000a8;
+    color: #b000a8;
+}
+
+.book-clinic-button {
+    border: none;
+    background: linear-gradient(
+        135deg,
+        #b000a8,
+        #e40078
+    );
+    color: #ffffff;
+}
+
+.book-clinic-button:hover {
+    transform: translateY(-1px);
+}
+
+
+.clinic-map-container {
+    position: sticky;
+    top: 105px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.clinic-map-heading {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 15px 18px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.clinic-map {
+    width: 100%;
+    height: 570px;
+}
+
+.leaflet-map {
+    width: 100%;
+    height: 100%;
+}
+
+
+.clinic-map-popup {
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.clinic-map-popup strong {
+    color: #344767;
+    font-size: 13px;
+}
+
+.clinic-map-popup span {
+    color: #e40078;
+    font-size: 11px;
+}
+
+.clinic-map-popup small {
+    color: #67748e;
+    font-size: 10px;
+}
+
+.clinic-map-popup button {
+    margin-top: 5px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(
+        135deg,
+        #b000a8,
+        #e40078
+    );
+    color: #ffffff;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.no-clinics {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.no-clinics span {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.no-clinics h3 {
+    margin: 0 0 5px;
+    color: #344767;
+    font-size: 15px;
+}
+
+.no-clinics p {
+    margin: 0;
+    color: #67748e;
+    font-size: 12px;
+}
+
+
+@media (max-width: 1100px) {
+
+    .find-clinic-page {
+        padding: 25px;
+    }
+
+    .clinic-content {
+        grid-template-columns: 1fr;
+    }
+
+    .clinic-map-container {
+        position: relative;
+        top: auto;
+    }
+
+    .clinic-map {
+        height: 450px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .find-clinic-page {
+        min-height: calc(100vh - 75px);
+        padding: 22px 18px;
+    }
+
+    .clinic-search-panel {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .clinic-search-button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .find-clinic-page {
+        padding: 18px 12px;
+    }
+
+    .clinic-page-heading h2 {
+        font-size: 19px;
+    }
+
+    .clinic-page-heading p {
+        font-size: 11px;
+    }
+
+    .clinic-search-panel {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .clinic-content {
+        gap: 16px;
+    }
+
+    .clinic-card {
+        padding: 14px;
+        gap: 11px;
+    }
+
+    .clinic-icon {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .clinic-information h3 {
+        font-size: 13px;
+    }
+
+    .clinic-actions {
+        flex-direction: column;
+    }
+
+    .clinic-actions button {
+        width: 100%;
+    }
+
+    .clinic-map {
+        height: 350px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .find-clinic-page {
+        padding: 15px 10px;
+    }
+
+    .clinic-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .clinic-map {
+        height: 300px;
+    }
+}

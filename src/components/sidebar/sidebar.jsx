@@ -72,13 +72,9 @@ import "./sidebar.css";
 
 
     function handleNavigation( event,page ) {
-
         event.preventDefault();
 
-        if ( page === "dashboard" || page === "find-doctor" || page === "find-clinic") {
-             
-            onNavigate(page);
-         }
+        if ( page === "dashboard" || page === "find-doctor" || page === "find-clinic") {onNavigate(page);}
 
          onNavClick();
     }
@@ -86,18 +82,14 @@ import "./sidebar.css";
 
     function handleHelp() {
 
-        alert(
-            "Help feature will be added in the future."
-        );
-
+        alert("Help feature will be added in the future.");
     }
 
 
     return (
         <nav
             className={`sidebar-navigation ${
-                isOpen ? "open" : ""
-            }`}
+                isOpen ? "open" : "" }`}
             id="sidebar-navigation"
             aria-label="Main navigation"
         >
@@ -135,7 +127,6 @@ import "./sidebar.css";
                     <span className="nav-label">{item.label}</span>
                  </a>
             ))}
-
 
             <button
                 id="help-button"
