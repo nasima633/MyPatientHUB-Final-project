@@ -1,0 +1,16 @@
+.page-layout {
+    min-height: 100vh;
+}
+
+.page-content {
+    margin-left: 255px;
+    padding-top: 85px;
+    min-height: calc(100vh - 85px);
+}
+
+@media (max-width: 900px) {
+    .page-content {
+        margin-left: 0;
+        padding-top: 75px;
+    }
+}
