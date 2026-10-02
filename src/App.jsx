@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Login from "./pages/Login/login";
+import Login from "./pages/login/login";
 import PageLayout from "./components/pageLayout/pagelayout";
 import Dashboard from "./pages/Dashboard/dashboard";
 import FindDoctor from "./pages/FindDoctor/finddoctor";

@@ -1,386 +1,476 @@
-import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+//this part is  is taken from AI
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
-
+import "leaflet/dist/leaflet.css";
 import "./finddoctor.css";
-//this part is taken from AI
-// Fix Leaflet marker icons in React/Vite
+
+// Fix Leaflet marker icons AI
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-    iconRetinaUrl:
-        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-    iconUrl:
-        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-    shadowUrl:
-        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
+// Kabul starting location AI
+const KABUL_CENTER = [34.5553, 69.2075];
 
+// Doctor data
 const doctors = [
-    {
-        id: 1,
-        name: "Dr. Ahmad Rahimi",
-        specialty: "Cardiologist",
-        location: "Kabul, Afghanistan",
-        experience: "10 years experience",
-        rating: 4.8,
-        fee: "$20",
-        latitude: 34.5553,
-        longitude: 69.2075,
-    },
-    {
-        id: 2,
-        name: "Dr. Sara Ahmad",
-        specialty: "Dermatologist",
-        location: "Kabul, Afghanistan",
-        experience: "8 years experience",
-        rating: 4.7,
-        fee: "$18",
-        latitude: 34.5325,
-        longitude: 69.1767,
-    },
-    {
-        id: 3,
-        name: "Dr. Mohammad Khan",
-        specialty: "General Physician",
-        location: "Kabul, Afghanistan",
-        experience: "12 years experience",
-        rating: 4.9,
-        fee: "$15",
-        latitude: 34.5689,
-        longitude: 69.1823,
-    },
-    {
-        id: 4,
-        name: "Dr. Laila Hamidi",
-        specialty: "Pediatrician",
-        location: "Kabul, Afghanistan",
-        experience: "7 years experience",
-        rating: 4.6,
-        fee: "$17",
-        latitude: 34.5466,
-        longitude: 69.1944,
-    },
+  {
+    id: 1,
+    name: "Dr. Ahmad Rahimi",
+    specialty: "Cardiology",
+    location: "Kabul",
+    experience: "10 years",
+    rating: 4.8,
+    fee: "$20",
+    service: "Primary Care and Internal",
+    coordinates: [34.5553, 69.2075],
+  },
+  {
+    id: 2,
+    name: "Dr. Sara Ahmad",
+    specialty: "Dermatology",
+    location: "Kabul",
+    experience: "8 years",
+    rating: 4.7,
+    fee: "$18",
+    service: "Primary Care and Internal",
+    coordinates: [34.5325, 69.1767],
+  },
+  {
+    id: 3,
+    name: "Dr. Mohammad Khan",
+    specialty: "General Physician",
+    location: "Kabul",
+    experience: "12 years",
+    rating: 4.9,
+    fee: "$15",
+    service: "Urgent Care",
+    coordinates: [34.5689, 69.1823],
+  },
+  {
+    id: 4,
+    name: "Dr. Laila Hamidi",
+    specialty: "Pediatrics",
+    location: "Kabul",
+    experience: "7 years",
+    rating: 4.6,
+    fee: "$17",
+    service: "Primary Care and Internal",
+    coordinates: [34.5466, 69.1944],
+  },
+  {
+    id: 5,
+    name: "Dr. Farid Waziri",
+    specialty: "Neurology",
+    location: "Kabul",
+    experience: "9 years",
+    rating: 4.8,
+    fee: "$22",
+    service: "Imaging Services",
+    coordinates: [34.5612, 69.2115],
+  },
+  {
+    id: 6,
+    name: "Dr. Maryam Safi",
+    specialty: "Emergency Medicine",
+    location: "Kabul",
+    experience: "6 years",
+    rating: 4.7,
+    fee: "$20",
+    service: "Emergency Care",
+    coordinates: [34.5418, 69.2032],
+  },
 ];
 
-
-export default function FindDoctor() {
-
-    const [search, setSearch] = useState("");
-    const [specialty, setSpecialty] = useState("All Specialties");
-    const [selectedDoctor, setSelectedDoctor] = useState(null);
-    const specialties = [
-        "All Specialties",
-        "Cardiologist",
-        "Dermatologist",
-        "General Physician",
-        "Pediatrician",
-    ];
-    const filteredDoctors = doctors.filter((doctor) => {
-    const matchesSearch =
-            doctor.name .toLowerCase() .includes(search.toLowerCase()) ||
-            doctor.specialty .toLowerCase() .includes(search.toLowerCase()) ||
-            doctor.location .toLowerCase() .includes(search.toLowerCase());
-    const matchesSpecialty = specialty === "All Specialties" || doctor.specialty === specialty;
-
-        return matchesSearch && matchesSpecialty;
-    });
-
-
-    function handleViewDoctor(doctor) {
-        setSelectedDoctor(doctor);
-    }
-
-
-    function handleBookAppointment(doctor) {
-        alert(
-            `Appointment booking for ${doctor.name} will be added in the future.`
-        );
-    }
-
-
-    return (
-
-        <main className="find-doctor-page">
-
-            <section className="doctor-page-heading">
-
-                <div>
-                    <h2>Find Doctor</h2>
-
-                    <p>
-                        Find the right doctor for your healthcare needs.
-                    </p>
-                </div>
-
-            </section>
-
-
-            <section className="doctor-search-panel">
-
-                <div className="doctor-search-field">
-
-                    <label htmlFor="doctor-search">
-                        Search Doctor
-                    </label>
-
-                    <div className="doctor-input-wrapper">
-
-                        <span className="doctor-search-icon">
-                            🔎
-                        </span>
-
-                        <input
-                            id="doctor-search"
-                            type="search"
-                            placeholder="Search by doctor, specialty or location..."
-                            value={search}
-                            onChange={(event) =>
-                                setSearch(event.target.value)
-                            }
-                        />
-
-                    </div>
-
-                </div>
-
-
-                <div className="doctor-filter-field">
-
-                    <label htmlFor="specialty-filter">
-                        Specialty
-                    </label>
-
-                    <select
-                        id="specialty-filter"
-                        value={specialty}
-                        onChange={(event) =>
-                            setSpecialty(event.target.value)
-                        }
-                    >
-
-                        {specialties.map((item) => (
-                            <option key={item} value={item}>
-                                {item}
-                            </option>
-                        ))}
-
-                    </select>
-
-                </div>
-
-
-                <button
-                    type="button"
-                    className="doctor-search-button"
-                    onClick={() => {}}
-                >
-                    Search
-                </button>
-
-            </section>
-
-
-            <section className="doctor-content">
-
-                <div className="doctor-results">
-
-                    <div className="results-header">
-
-                        <div>
-                            <h3>Available Doctors</h3>
-
-                            <p>
-                                {filteredDoctors.length} doctors found
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    {filteredDoctors.length === 0 ? (
-
-                        <div className="no-doctors">
-                            <span>🔎</span>
-
-                            <h3>No doctors found</h3>
-
-                            <p>
-                                Try changing your search or specialty.
-                            </p>
-                        </div>
-
-                    ) : (
-
-                        filteredDoctors.map((doctor) => (
-
-                            <article
-                                className={`doctor-card ${
-                                    selectedDoctor?.id === doctor.id
-                                        ? "selected"
-                                        : ""
-                                }`}
-                                key={doctor.id}
-                            >
-
-                                <div className="doctor-avatar">
-                                    {doctor.name
-                                        .replace("Dr. ", "")
-                                        .charAt(0)}
-                                </div>
-
-
-                                <div className="doctor-information">
-
-                                    <h3>{doctor.name}</h3>
-
-                                    <p className="doctor-specialty">
-                                        {doctor.specialty}
-                                    </p>
-
-                                    <p className="doctor-location">
-                                        📍 {doctor.location}
-                                    </p>
-
-                                    <div className="doctor-meta">
-
-                                        <span>
-                                            ⭐ {doctor.rating}
-                                        </span>
-
-                                        <span>
-                                            {doctor.experience}
-                                        </span>
-
-                                        <span>
-                                            {doctor.fee}
-                                        </span>
-
-                                    </div>
-
-
-                                    <div className="doctor-actions">
-
-                                        <button
-                                            type="button"
-                                            className="view-doctor-button"
-                                            onClick={() =>
-                                                handleViewDoctor(doctor)
-                                            }
-                                        >
-                                            View Profile
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            className="book-doctor-button"
-                                            onClick={() =>
-                                                handleBookAppointment(
-                                                    doctor
-                                                )
-                                            }
-                                        >
-                                            Book Appointment
-                                        </button>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-                        ))
-
-                    )}
-
-                </div>
-
-
-                <div className="doctor-map-container">
-
-                    <div className="map-heading">
-
-                        <div>
-                            <h3>Doctors Near You</h3>
-
-                            <p>
-                                Explore doctors on the map
-                            </p>
-                        </div>
-
-                    </div>
-
-{/* this part is taken from AI */}
-                    <div className="doctor-map">
-
-                        <MapContainer
-                            center={[34.5553, 69.2075]}
-                            zoom={12}
-                            scrollWheelZoom={true}
-                            className="leaflet-map"
-                        >
-
-                            <TileLayer
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            />
-
-
-                            {filteredDoctors.map((doctor) => (
-
-                                <Marker
-                                    key={doctor.id}
-                                    position={[
-                                        doctor.latitude,
-                                        doctor.longitude,
-                                    ]}
-                                >
-
-                                    <Popup>
-
-                                        <div className="map-popup">
-
-                                            <strong>
-                                                {doctor.name}
-                                            </strong>
-
-                                            <span>
-                                                {doctor.specialty}
-                                            </span>
-
-                                            <small>
-                                                ⭐ {doctor.rating}
-                                            </small>
-
-                                            <button
-                                                type="button"
-                                                onClick={() =>
-                                                    handleViewDoctor(
-                                                        doctor
-                                                    )
-                                                }
-                                            >
-                                                View Profile
-                                            </button>
-
-                                        </div>
-
-                                    </Popup>
-
-                                </Marker>
-
-                            ))}
-
-                        </MapContainer>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-    );
+// Specialty information
+const specialtyDescriptions = {
+  Anesthesiology: "Doctors specializing in anesthesia and pain management.",
+  Dermatology:
+    "Doctors who diagnose and treat skin, hair, and nail conditions.",
+  "Emergency medicine":
+    "Doctors who provide immediate care for urgent and emergency conditions.",
+  Neurology: "Doctors specializing in the brain, nerves, and nervous system.",
+  Consultation:
+    "General medical consultation and professional health guidance.",
+  Ophthalmology:
+    "Doctors specializing in eye health and vision-related conditions.",
+  Cardiology: "Doctors specializing in the heart and cardiovascular system.",
+  Pediatrics:
+    "Doctors specializing in the health and medical care of children.",
+};
+
+// Special services
+const services = [
+  {
+    id: "primary",
+    title: "Primary Care and Internal",
+    icon: "🩺",
+    className: "primary-service",
+    filter: "Primary Care and Internal",
+  },
+  {
+    id: "emergency",
+    title: "Emergency Care",
+    icon: "🚑",
+    className: "emergency-service",
+    filter: "Emergency Care",
+  },
+  {
+    id: "imaging",
+    title: "Imaging Services",
+    icon: "🔬",
+    className: "imaging-service",
+    filter: "Imaging Services",
+  },
+  {
+    id: "urgent",
+    title: "Urgent Care",
+    icon: "🏥",
+    className: "urgent-service",
+    filter: "Urgent Care",
+  },
+];
+
+// Re-center Leaflet map when the selected center changes AI
+function MapController({ center }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, 12);
+  }, [map, center]);
+  return null;
 }
+
+function FindDoctor() {
+  const [doctorName, setDoctorName] = useState("");
+  const [location, setLocation] = useState("");
+  const [selectedSpecialty, setSelectedSpecialty] = useState("");
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [mapCenter, setMapCenter] = useState(KABUL_CENTER);
+  const [isGettingLocation, setIsGettingLocation] = useState(false);
+  // Filter doctors
+  const filteredDoctors = doctors.filter((doctor) => {
+    const nameSearch = doctorName.toLowerCase().trim();
+    const locationSearch = location.toLowerCase().trim();
+    const matchesName =
+      !nameSearch ||
+      doctor.name.toLowerCase().includes(nameSearch) ||
+      doctor.specialty.toLowerCase().includes(nameSearch);
+
+    const matchesLocation =
+      !locationSearch || doctor.location.toLowerCase().includes(locationSearch);
+    const matchesSpecialty =
+      !selectedSpecialty || doctor.specialty === selectedSpecialty;
+    const matchesService =
+      !selectedService || doctor.service === selectedService;
+
+    return matchesName && matchesLocation && matchesSpecialty && matchesService;
+  });
+
+  // Search button
+  function handleSearch(event) {
+    event.preventDefault();
+
+    if (filteredDoctors.length > 0) {
+      setSelectedDoctor(filteredDoctors[0]);
+      setMapCenter(filteredDoctors[0].coordinates);
+    }
+  }
+
+  // Current location
+  function handleCurrentLocation() {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+    setIsGettingLocation(true);
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLocation = [
+          position.coords.latitude,
+          position.coords.longitude,
+        ];
+
+        setMapCenter(userLocation);
+        setIsGettingLocation(false);
+      },
+
+      () => {
+        alert(
+          "Unable to get your current location. Please allow location access and try again.",
+        );
+        setIsGettingLocation(false);
+      },
+    );
+  }
+  // Select specialty
+  function handleSpecialtyClick(specialty) {
+    setSelectedSpecialty(selectedSpecialty === specialty ? "" : specialty);
+
+    setSelectedService("");
+    setSelectedDoctor(null);
+  }
+
+  // Select service
+  function handleServiceClick(service) {
+    setSelectedService(selectedService === service ? "" : service);
+
+    setSelectedSpecialty("");
+    setSelectedDoctor(null);
+  }
+
+  // View doctor profile
+  function handleViewProfile(doctor) {
+    setSelectedDoctor(doctor);
+    setMapCenter(doctor.coordinates);
+  }
+
+  // Book appointment
+  function handleBookAppointment(doctor) {
+    alert(`Appointment request started for ${doctor.name}.`);
+  }
+  // Clear all filters
+  function handleClearFilters() {
+    setDoctorName("");
+    setLocation("");
+    setSelectedSpecialty("");
+    setSelectedService("");
+    setSelectedDoctor(null);
+    setMapCenter(KABUL_CENTER);
+  }
+
+  return (
+    <main className="find-doctor-main">
+      <section className="doctor-hero">
+        <div className="doctor-hero-content">
+          <h2>Find a Doctor</h2>
+
+          <p>Search Doctors and schedule an appointment </p>
+
+          <form className="doctor-search" onSubmit={handleSearch}>
+            <input
+              type="text"
+              placeholder="Search a doctor by name, speciality"
+              value={doctorName}
+              onChange={(event) => setDoctorName(event.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Zip Code or Neighborhood"
+              value={location}
+              onChange={(event) => setLocation(event.target.value)}
+            />
+
+            <button
+              type="button"
+              className="current-location-button"
+              onClick={handleCurrentLocation}
+              disabled={isGettingLocation}
+            >
+              {isGettingLocation ? "Locating..." : "Current"}
+            </button>
+
+            <button type="submit" className="doctor-search-button">
+              SEARCH
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* FIND DOCTORS */}
+      <section className="doctor-results-section">
+        <div className="results-header">
+          <div>
+            <h2>Available Doctors</h2>
+            <p> Find doctors near you and view their location on the map.</p>
+          </div>
+
+          {(doctorName || location || selectedSpecialty || selectedService) && (
+            <button
+              type="button"
+              className="clear-filters-button"
+              onClick={handleClearFilters}
+            >
+              {" "}
+              Clear Filters{" "}
+            </button>
+          )}
+        </div>
+
+        <div className="doctor-results-layout">
+          {/* Doctor cards AI */}
+          <div className="doctor-list">
+            {filteredDoctors.length > 0 ? (
+              filteredDoctors.map((doctor) => (
+                <article
+                  key={doctor.id}
+                  className={`doctor-card ${selectedDoctor?.id === doctor.id ? "selected" : ""}`}
+                  onClick={() => handleViewProfile(doctor)}
+                >
+                  <div className="doctor-avatar">
+                    {doctor.name
+                      .replace("Dr. ", "")
+                      .split(" ")
+                      .map((name) => name[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </div>
+
+                  <div className="doctor-info">
+                    <div className="doctor-card-top">
+                      <div>
+                        <h3> {doctor.name} </h3>
+                        <span className="doctor-specialty">
+                          {" "}
+                          {doctor.specialty}
+                        </span>
+                      </div>
+
+                      <span className="doctor-rating">★ {doctor.rating}</span>
+                    </div>
+
+                    <div className="doctor-details">
+                      <span>📍 {doctor.location} </span>
+                      <span>💼 {doctor.experience}</span>
+                      <span> 💵 {doctor.fee}</span>
+                    </div>
+
+                    <div className="doctor-card-actions">
+                      <button
+                        type="button"
+                        className="view-profile-button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleViewProfile(doctor);
+                        }}
+                      >
+                        View Profile
+                      </button>
+
+                      <button
+                        type="button"
+                        className="book-button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleBookAppointment(doctor);
+                        }}
+                      >
+                        Book Appointment
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="no-doctors">
+                <div className="no-doctors-icon"></div>
+                <h3> No doctors found</h3>
+                <p>Try changing your search,specialty, or service.</p>
+
+                <button type="button" onClick={handleClearFilters}>
+                  Show All Doctors
+                </button>
+              </div>
+            )}
+          </div>
+          {/* Real map  AI */}
+          <div className="doctor-map-container">
+            <MapContainer
+              center={KABUL_CENTER}
+              zoom={12}
+              scrollWheelZoom={true}
+              className="doctor-map"
+            >
+              <MapController center={mapCenter} />
+
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+
+              {filteredDoctors.map((doctor) => (
+                <Marker key={doctor.id} position={doctor.coordinates}>
+                  <Popup>
+                    <div className="doctor-popup">
+                      <h3>{doctor.name} </h3>
+                      <p>{doctor.specialty}</p>
+                      <span>★ {doctor.rating}</span>
+                      <br />
+                      <span>{doctor.experience} </span>
+
+                      <button
+                        type="button"
+                        onClick={() => handleBookAppointment(doctor)}
+                      >
+                        Book Appointment
+                      </button>
+                    </div>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+            <div className="map-label"> 📍 Doctor Locations</div>
+          </div>
+        </div>
+      </section>
+
+      {/*  SPECIAL SERVICES */}
+      <section className="doctor-section">
+        <h2>Special Services</h2>
+        <div className="services-grid">
+          {services.map((service) => (
+            <button
+              key={service.id}
+              type="button"
+              className={`service-card ${service.className} ${selectedService === service.filter ? "active" : ""}`}
+              onClick={() => handleServiceClick(service.filter)}
+            >
+              <div className="service-icon">{service.icon}</div>
+              <div className="service-content">
+                <h3>{service.title}</h3>
+                <p>Find doctors providing this service </p>
+              </div>
+              <span className="service-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* SPECIALTIES */}
+      <section className="specialty-section">
+        <h2> Find Doctors By Specialty </h2>
+        <p className="specialty-description">
+          {" "}
+          Search for doctors based on their medical specialty.
+        </p>
+        <div className="specialty-grid">
+          {Object.entries(specialtyDescriptions).map(
+            ([specialty, description]) => (
+              <button
+                key={specialty}
+                type="button"
+                className={`specialty-card ${selectedSpecialty === specialty ? "active" : ""}`}
+                onClick={() => handleSpecialtyClick(specialty)}
+              >
+                <div>
+                  <h3>{specialty}</h3>
+                  <p> {description} </p>
+                </div>
+                <span className="specialty-arrow">→ </span>
+              </button>
+            ),
+          )}
+        </div>
+      </section>
+    </main>
+  );
+}
+export default FindDoctor;

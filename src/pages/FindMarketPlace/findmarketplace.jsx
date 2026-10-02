@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./findmarketplace.css";
 
@@ -51,7 +50,6 @@ function FindMarketplace() {
     const [searchText, setSearchText] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [cartCount, setCartCount] = useState(0);
-
     const categories = [
         "All",
         "Medical Equipment",
@@ -60,42 +58,29 @@ function FindMarketplace() {
     ];
 
     const filteredProducts = products.filter((product) => {
-        const matchesSearch = product.name
-            .toLowerCase()
-            .includes(searchText.toLowerCase());
-
-        const matchesCategory =
-            selectedCategory === "All" ||
-            product.category === selectedCategory;
+    const matchesSearch = product.name .toLowerCase()  .includes(searchText.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
 
         return matchesSearch && matchesCategory;
     });
 
-    const handleAddToCart = () => {
+    function handleAddToCart() {
         setCartCount((currentCount) => currentCount + 1);
-    };
+    }
 
     return (
         <div className="marketplace-page">
-
             {/* Page Header */}
             <div className="marketplace-header">
                 <div>
                     <h1>Find Marketplace</h1>
-                    <p>
-                        Find healthcare products and medical essentials
-                        in one place.
-                    </p>
+                    <p> Find healthcare products and medical essentials in one place.</p>
                 </div>
 
-                <button className="cart-button">
+                <button className="cart-button" type="button">
                     <span className="cart-icon">🛒</span>
-                    Cart
-                    {cartCount > 0 && (
-                        <span className="cart-count">
-                            {cartCount}
-                        </span>
-                    )}
+                     Cart
+                    {cartCount > 0 && ( <span className="cart-count"> {cartCount} </span>)}
                 </button>
             </div>
 
@@ -108,10 +93,20 @@ function FindMarketplace() {
                         type="search"
                         placeholder="Search products..."
                         value={searchText}
-                        onChange={(event) =>
-                            setSearchText(event.target.value)
-                        }
+                        onChange={(event) => setSearchText(event.target.value) }
+                        aria-label="Search marketplace products"
                     />
+
+                    {searchText && (
+                        <button
+                            className="clear-search"
+                            type="button"
+                            onClick={() => setSearchText("")}
+                            aria-label="Clear search"
+                        >
+                            ×
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -120,6 +115,7 @@ function FindMarketplace() {
                 {categories.map((category) => (
                     <button
                         key={category}
+                        type="button"
                         className={
                             selectedCategory === category
                                 ? "category-button active"
@@ -180,6 +176,7 @@ function FindMarketplace() {
 
                                         <button
                                             className="add-cart-button"
+                                            type="button"
                                             onClick={handleAddToCart}
                                         >
                                             Add to Cart
@@ -205,7 +202,6 @@ function FindMarketplace() {
                 )}
 
             </section>
-
         </div>
     );
 }

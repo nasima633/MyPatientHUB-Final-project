@@ -1,16 +1,80 @@
-# React + Vite
+# MyPatientHUB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive healthcare web application built with React as part of the HBC Web Development program.
 
-Currently, two official plugins are available:
+MyPatientHUB is designed to provide users with a simple interface for accessing healthcare-related services such as finding doctors, finding clinics, and browsing healthcare products.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Project
 
-## React Compiler
+- GitHub Repository: https://github.com/nasima633/MyPatientHUB-Final-project.git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Project Features
 
-## Expanding the ESLint configuration
+- User Login interface
+- Dashboard
+- Find Doctor page
+- Find Clinic page
+- Find Marketplace page
+- Marketplace product search
+- Marketplace category filtering
+- Add-to-cart counter
+- Responsive layout
+- Sidebar navigation
+- Header with search functionality
+- Footer
+- Mobile-friendly interface
+- React component-based structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- React
+- JavaScript
+- HTML5
+- CSS3
+- Vite
+- Git
+- GitHub
+- Recharts
+- React Leaflet
+- Leaflet
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── components/
+│   ├── header/
+│   │   └── header.jsx
+│   │
+│   ├── sidebar/
+│   │   ├── sidebar.jsx
+│   │   └── sidebar.css
+│   │
+│   ├── footer/
+│   │   ├── footer.jsx
+│   │   └── footer.css
+│   │
+│   └── pageLayout/
+│       ├── pagelayout.jsx
+│       └── pageLayout.css
+│
+├── pages/
+│   ├── Login/
+│   │   └── login.jsx
+│   │
+│   ├── Dashboard/
+│   │   └── dashboard.jsx
+│   │
+│   ├── FindDoctor/
+│   │   └── finddoctor.jsx
+│   │
+│   ├── FindClinic/
+│   │   └── findclinic.jsx
+│   │
+│   └── FindMarketPlace/
+│       ├── findmarketplace.jsx
+│       └── findmarketplace.css
+│
+├── App.jsx
+└── main.jsx

@@ -1,17 +1,12 @@
 import { useState } from "react";
-
 import Header from "../header/header";
 import Sidebar from "../sidebar/sidebar";
 import Footer from "../footer/footer";
-
 import "./pageLayout.css";
 
-export default function PageLayout({
-    children,
-    currentPage,
-    onNavigate,
-    onLogout
-}) {
+
+export default function PageLayout({children, currentPage, onNavigate, onLogout}) {
+
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [searchText, setSearchText] = useState("");
 
@@ -64,12 +59,8 @@ export default function PageLayout({
                 onNavigate={onNavigate}
             />
 
-            <main className="page-content">
-                {children}
-            </main>
-
+            <main className="page-content"> {children} </main>
             <Footer />
-
         </div>
     );
 }
