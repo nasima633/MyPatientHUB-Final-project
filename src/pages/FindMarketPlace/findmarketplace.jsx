@@ -1,48 +1,55 @@
 import { useState } from "react";
 import "./findmarketplace.css";
 
+import bloodPressureMonitor from "../../assets/images/blood-pressure-monitor.png";
+import thermometer from "../../assets/images/thermometer.png";
+import pulseOximeter from "../../assets/images/pulse-oximeter.png";
+import firstAidKit from "../../assets/images/first-aid-kit.png";
+import faceMask from "../../assets/images/face-mask.png";
+import vitaminOrganizer from "../../assets/images/vitamin-organizer.png";
+
 const products = [
     {
         id: 1,
         name: "Digital Blood Pressure Monitor",
         category: "Medical Equipment",
         price: "$45.00",
-        image: "/images/blood-pressure-monitor.png",
+        image:bloodPressureMonitor,
     },
     {
         id: 2,
         name: "Digital Thermometer",
         category: "Medical Equipment",
         price: "$12.00",
-        image: "/images/thermometer.png",
+        image: thermometer,
     },
     {
         id: 3,
         name: "Pulse Oximeter",
         category: "Medical Equipment",
         price: "$25.00",
-        image: "/images/pulse-oximeter.png",
+        image: pulseOximeter,
     },
     {
         id: 4,
         name: "First Aid Kit",
         category: "Healthcare",
         price: "$30.00",
-        image: "/images/first-aid-kit.png",
+       image: firstAidKit,
     },
     {
         id: 5,
         name: "Medical Face Mask",
         category: "Healthcare",
         price: "$8.00",
-        image: "/images/face-mask.png",
+        image: faceMask,
     },
     {
         id: 6,
         name: "Vitamin Organizer",
         category: "Healthcare",
         price: "$15.00",
-        image: "/images/vitamin-organizer.png",
+       image: vitaminOrganizer,
     },
 ];
 
