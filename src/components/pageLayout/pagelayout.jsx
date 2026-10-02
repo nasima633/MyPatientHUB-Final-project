@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Header from "../header/header";
-import Sidebar from "../sidebar/sidebar";
+import Sidebar from "../../Components/sidebar-temp/sidebar";
 import Footer from "../footer/footer";
 
 import "./pageLayout.css";
