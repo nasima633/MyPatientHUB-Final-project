@@ -37,7 +37,7 @@ import "./sidebar.css";
             id: "nav-marketplace",
             label: "Find MarketPlace",
             icon: "▤",
-            page: "marketplace"
+            page: "find-marketplace"
         },
         {
             id: "nav-pharmacy",
@@ -71,25 +71,36 @@ import "./sidebar.css";
         (item) => item.label.toLowerCase() .includes( searchText.toLowerCase()));
 
 
-    function handleNavigation( event,page ) {
-        event.preventDefault();
+   function handleNavigation(event, page) {
+    event.preventDefault();
 
-        if ( page === "dashboard" || page === "find-doctor" || page === "find-clinic") {onNavigate(page);}
-
-         onNavClick();
+    if (
+        page === "dashboard" ||
+        page === "find-doctor" ||
+        page === "find-clinic" ||
+        page === "find-marketplace"
+    ) {
+        onNavigate(page);
     }
+
+    onNavClick();
+}
 
 
     function handleHelp() {
 
-        alert("Help feature will be added in the future.");
+        alert(
+            "Help feature will be added in the future."
+        );
+
     }
 
 
     return (
         <nav
             className={`sidebar-navigation ${
-                isOpen ? "open" : "" }`}
+                isOpen ? "open" : ""
+            }`}
             id="sidebar-navigation"
             aria-label="Main navigation"
         >
@@ -127,6 +138,7 @@ import "./sidebar.css";
                     <span className="nav-label">{item.label}</span>
                  </a>
             ))}
+
 
             <button
                 id="help-button"

@@ -4,11 +4,13 @@ import PageLayout from "./components/pageLayout/pagelayout";
 import Dashboard from "./pages/Dashboard/dashboard";
 import FindDoctor from "./pages/FindDoctor/finddoctor";
 import FindClinic from "./pages/FindClinic/findclinic";
+import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
 
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [currentPage, setCurrentPage] = useState("dashboard");
+
 
     function handleLoginSuccess() {
         setLoggedIn(true);
@@ -37,12 +39,15 @@ function App() {
             return <FindClinic />;
         }
 
+        if (currentPage === "find-marketplace") {
+            return <FindMarketplace />;
+        }
+
         return <Dashboard />;
     }
 
 
     if (!loggedIn) {
-
         return (
             <Login onLoginSuccess={handleLoginSuccess} />
         );
