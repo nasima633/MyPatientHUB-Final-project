@@ -37,7 +37,7 @@ import "./sidebar.css";
             id: "nav-marketplace",
             label: "Find MarketPlace",
             icon: "▤",
-            page: "marketplace"
+            page: "find-marketplace"
         },
         {
             id: "nav-pharmacy",
@@ -71,17 +71,20 @@ import "./sidebar.css";
         (item) => item.label.toLowerCase() .includes( searchText.toLowerCase()));
 
 
-    function handleNavigation( event,page ) {
+   function handleNavigation(event, page) {
+    event.preventDefault();
 
-        event.preventDefault();
-
-        if ( page === "dashboard" || page === "find-doctor" || page === "find-clinic") {
-             
-            onNavigate(page);
-         }
-
-         onNavClick();
+    if (
+        page === "dashboard" ||
+        page === "find-doctor" ||
+        page === "find-clinic" ||
+        page === "find-marketplace"
+    ) {
+        onNavigate(page);
     }
+
+    onNavClick();
+}
 
 
     function handleHelp() {
