@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import { useState } from "react";
 // import Login from "./pages/Login/login";
 // import PageLayout from "./components/pageLayout/pagelayout";
@@ -63,7 +63,7 @@
 
 
 // export default App;
-=======
+
 import { useState } from "react";
 import Login from "./pages/Login/login";
 import PageLayout from "./components/pageLayout/pagelayout";
@@ -128,4 +128,3 @@ function App() {
 
 
 export default App;
->>>>>>> origin/asma
