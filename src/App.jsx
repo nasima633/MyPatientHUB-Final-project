@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard/dashboard";
 import FindDoctor from "./pages/FindDoctor/finddoctor";
 import FindClinic from "./pages/FindClinic/findclinic";
 import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
+import FindPharmacy from "./pages/FindPharmacy/findpharmacy";
 
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
 
         if (currentPage === "find-marketplace") {
             return <FindMarketplace />;
+        }
+
+        if (currentPage === "find-pharmacy") {
+            return <FindPharmacy />;
         }
 
         return <Dashboard />;
