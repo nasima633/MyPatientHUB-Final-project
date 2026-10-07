@@ -47,9 +47,10 @@ import "./sidebar.css";
         },
         {
             id: "nav-dependents",
-            label: "My Dependents",
-            icon: "▤",
-            page: "dependents"
+            label:"My Dependents",
+            icon:"x",
+            page:"my-dependents"
+
         },
         {
             id: "nav-account",
@@ -78,7 +79,8 @@ import "./sidebar.css";
         page === "dashboard" ||
         page === "find-doctor" ||
         page === "find-clinic" ||
-        page === "find-marketplace"
+        page === "find-marketplace" ||
+        page === "my-dependents"
     ) {
         onNavigate(page);
     }

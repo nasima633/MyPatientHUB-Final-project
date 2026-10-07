@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "../header/header";
-import Sidebar from "../../Components/sidebar/sidebar";
+import Sidebar from "../sidebar/sidebar";
 import Footer from "../footer/footer";
 import "./pageLayout.css";
 
@@ -35,6 +35,9 @@ export default function PageLayout({children, currentPage, onNavigate, onLogout}
 
         if (currentPage === "find-marketplace") {
             return "Find MarketPlace";
+        }
+        if(currentPage=== "my-dependents"){
+            return "My Dependents"
         }
 
         return "Dashboard";
