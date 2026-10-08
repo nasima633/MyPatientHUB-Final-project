@@ -6,7 +6,7 @@ import FindDoctor from "./pages/FindDoctor/finddoctor";
 import FindClinic from "./pages/FindClinic/findclinic";
 import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
 import FindPharmacy from "./pages/FindPharmacy/findpharmacy";
-
+import MyDependents from "./pages/MyDependence/mydependents";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -26,6 +26,7 @@ function App() {
 
 
     function handleNavigate(page) {
+        console.log("NAVIGATION:",page);
         setCurrentPage(page);
     }
 
@@ -42,6 +43,11 @@ function App() {
 
         if (currentPage === "find-marketplace") {
             return <FindMarketplace />;
+        }
+
+        if(currentPage=== "my-dependents"){
+            console.log("page is active")
+            return <MyDependents/>
         }
 
         if (currentPage === "find-pharmacy") {
@@ -69,6 +75,4 @@ function App() {
         </PageLayout>
     );
 }
-
-
 export default App;
