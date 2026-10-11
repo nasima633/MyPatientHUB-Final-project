@@ -4,7 +4,7 @@
     padding: 24px 30px;
 }
 
-/* Header */
+
 
 .marketplace-header {
     display: flex;
@@ -26,7 +26,6 @@
     font-size: 14px;
 }
 
-/* Cart */
 
 .cart-button {
     position: relative;
@@ -108,7 +107,7 @@
     color: #9ca3af;
 }
 
-/* Categories */
+
 
 .marketplace-categories {
     display: flex;
@@ -137,7 +136,6 @@
     color: #ffffff;
 }
 
-/* Content */
 
 .marketplace-content {
     width: 100%;
@@ -167,7 +165,7 @@
     font-size: 13px;
 }
 
-/* Products */
+
 
 .products-grid {
     display: grid;
@@ -188,7 +186,7 @@
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* Product Image */
+
 
 .product-image-container {
     width: 100%;
@@ -204,7 +202,7 @@
     display: block;
 }
 
-/* Product Info */
+
 
 .product-info {
     padding: 16px;
@@ -254,7 +252,7 @@
     background-color: #1d4ed8;
 }
 
-/* No Products */
+
 
 .no-products {
     min-height: 300px;
@@ -285,7 +283,6 @@
     font-size: 13px;
 }
 
-/* Responsive */
 
 @media (max-width: 1000px) {
     .products-grid {
