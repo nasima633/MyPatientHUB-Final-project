@@ -74,6 +74,7 @@ import "./sidebar.css";
 
    function handleNavigation(event, page) {
     event.preventDefault();
+    
 
     if (
         page === "dashboard" ||
@@ -81,7 +82,8 @@ import "./sidebar.css";
         page === "find-clinic" ||
         page === "find-marketplace" ||
         page === "find-pharmacy" ||
-        page === "my-dependents"
+        page === "my-dependents" ||
+        page === "account"
     ) {
         onNavigate(page);
     }
