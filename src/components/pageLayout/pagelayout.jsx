@@ -36,6 +36,11 @@ export default function PageLayout({children, currentPage, onNavigate, onLogout}
         if (currentPage === "find-marketplace") {
             return "Find MarketPlace";
         }
+
+        if (currentPage === "account") {
+             return "My Account";
+        }
+        
         if(currentPage=== "my-dependents"){
             return "My Dependents"
         }
