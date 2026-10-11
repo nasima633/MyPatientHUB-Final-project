@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Login from "./pages/login/login";
-import PageLayout from "./components/pageLayout/pagelayout";
+import PageLayout from "./Components/pageLayout/pagelayout";
 import Dashboard from "./pages/Dashboard/dashboard";
 import FindDoctor from "./pages/FindDoctor/finddoctor";
 import FindClinic from "./pages/FindClinic/findclinic";
 import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
 import FindPharmacy from "./pages/FindPharmacy/findpharmacy";
 import MyDependents from "./pages/MyDependence/mydependents";
+import MyAccount from "./pages/MyAccount/myaccount";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -48,6 +49,10 @@ function App() {
         if(currentPage=== "my-dependents"){
             console.log("page is active")
             return <MyDependents/>
+        }
+
+        if (currentPage === "account") {
+            return <MyAccount />;
         }
 
         if (currentPage === "find-pharmacy") {
