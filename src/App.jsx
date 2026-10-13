@@ -6,6 +6,8 @@ import FindDoctor from "./pages/FindDoctor/finddoctor";
 import FindClinic from "./pages/FindClinic/findclinic";
 import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
 import MyDependents from "./pages/MyDependence/mydependents";
+import FindPharmacy from "./pages/FindPharmacy/findpharmacy";
+
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -46,6 +48,10 @@ function App() {
         if(currentPage=== "my-dependents"){
             console.log("page is active")
             return <MyDependents/>
+        }
+
+        if (currentPage === "find-pharmacy") {
+            return <FindPharmacy />;
         }
 
         return <Dashboard />;

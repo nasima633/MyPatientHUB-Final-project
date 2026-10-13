@@ -43,7 +43,7 @@ import "./sidebar.css";
             id: "nav-pharmacy",
             label: "Find Pharmacy",
             icon: "▣",
-            page: "pharmacy"
+            page: "find-pharmacy"
         },
         {
             id: "nav-dependents",
@@ -80,7 +80,8 @@ import "./sidebar.css";
         page === "find-doctor" ||
         page === "find-clinic" ||
         page === "find-marketplace" ||
-        page === "my-dependents"
+        page === "my-dependents"||
+        page === "find-pharmacy"
     ) {
         onNavigate(page);
     }
