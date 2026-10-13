@@ -1,8 +1,7 @@
 /*  FIND DOCTOR MAIN */
 
 .find-doctor-main {
-    margin-left: 255px;
-    padding-top: 85px;
+    width: 100%;
     min-height: calc(100vh - 85px);
     background: #f8f9fc;
     box-sizing: border-box;
@@ -149,7 +148,7 @@
 /* DOCTOR RESULTS SECTION*/
 
 .doctor-results-section {
-    margin: 60px 30px 0;
+    margin: 30px 30px 0;
 
     padding: 35px 40px 40px;
 
@@ -601,7 +600,7 @@
 /* SPECIAL SERVICES */
 
 .doctor-section {
-    margin: 60px 30px 0;
+    margin: 30px 30px 0;
 
     padding: 35px 40px 40px;
 
@@ -751,7 +750,7 @@
 /*SPECIALTIES */
 
 .specialty-section {
-    margin: 60px 30px 60px;
+    margin: 30px 30px 30px;
 
     padding: 35px 40px 40px;
 
@@ -894,10 +893,6 @@
 /*  RESPONSIVE - 900px */
 
 @media (max-width: 900px) {
-
-    .find-doctor-main {
-        margin-left: 0;
-    }
 
 
     .doctor-hero {
