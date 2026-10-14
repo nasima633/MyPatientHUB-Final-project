@@ -81,25 +81,7 @@ const MyAccount = () => {
 
   return (
     <div className="myaccount-wrapper">
-      <div className="myaccount-header">
-        <div>
-          <p className="myaccount-breadcrumb">
-            <span>🏠</span> / Myaccount
-          </p>
-          <h1 className="myaccount-title">My Account</h1>
-        </div>
-
-        <div className="myaccount-header-right">
-          <div className="myaccount-search">
-            <span className="myaccount-search-icon">🔍</span>
-            <input type="text" placeholder="Type here..." />
-          </div>
-          <button className="myaccount-logout">👤 Log out</button>
-          <span className="myaccount-iconbtn">⚙️</span>
-          <span className="myaccount-iconbtn">🔔</span>
-        </div>
-      </div>
-
+      {/* ===== کارت اعتباری + Invoices ===== */}
       <div className="myaccount-top-row">
         <div className="credit-card">
           <div className="credit-card-glow"></div>
@@ -154,6 +136,7 @@ const MyAccount = () => {
         </div>
       </div>
 
+      {/* ===== Stats ===== */}
       <div className="myaccount-stats-row">
         <div className="stat-box">
           <div className="stat-top">
@@ -178,8 +161,10 @@ const MyAccount = () => {
         </div>
       </div>
 
+      {/* ===== ردیف پایین ===== */}
       <div className="myaccount-bottom-row">
         <div className="myaccount-bottom-left">
+          {/* Payment Method */}
           <div className="payment-box">
             <div className="payment-header">
               <h2>Payment Method</h2>
@@ -212,6 +197,7 @@ const MyAccount = () => {
             </div>
           </div>
 
+          {/* Billing Info */}
           <div className="billing-box">
             <h2 className="billing-title">Billing Information</h2>
 
@@ -245,6 +231,7 @@ const MyAccount = () => {
           </div>
         </div>
 
+        {/* Transactions */}
         <div className="transactions-box">
           <div className="transactions-header">
             <h2>Your Transaction's</h2>

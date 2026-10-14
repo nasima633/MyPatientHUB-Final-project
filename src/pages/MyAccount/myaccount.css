@@ -1,87 +1,10 @@
-
 .myaccount-wrapper {
   min-height: 100vh;
   background: #f8f9fb;
   padding: 24px;
   font-family: "Helvetica", "Arial", sans-serif;
-  color: #e40078;
+  color: #1b2559;
   box-sizing: border-box;
-}
-
-.myaccount-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.myaccount-breadcrumb {
-  font-size: 12px;
-  color: #a0aec0;
-  margin: 0 0 4px 0;
-}
-
-.myaccount-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.myaccount-header-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.myaccount-search {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.myaccount-search input {
-  padding: 10px 16px 10px 38px;
-  border-radius: 10px;
-  border: 1px solid #edf2f7;
-  background: #fff;
-  font-size: 13px;
-  outline: none;
-  width: 220px;
-  color: #1b2559;
-  transition: 0.2s;
-}
-
-.myaccount-search input:focus {
-  border-color: #e40078;
-  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
-}
-
-.myaccount-search-icon {
-  position: absolute;
-  left: 12px;
-  font-size: 13px;
-  color: #a0aec0;
-}
-
-.myaccount-logout {
-  background: none;
-  border: none;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1b2559;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.myaccount-iconbtn {
-  font-size: 16px;
-  color: #718096;
-  cursor: pointer;
 }
 
 .myaccount-top-row {
@@ -207,6 +130,7 @@
   font-size: 16px;
   font-weight: 700;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .invoices-viewall {
@@ -244,6 +168,7 @@
   font-size: 13px;
   font-weight: 600;
   margin: 0 0 2px 0;
+  color: #5a6b9e;
 }
 
 .inv-id {
@@ -266,7 +191,7 @@
 .inv-pdf {
   font-size: 11px;
   font-weight: 600;
-  color: #e40078;
+  color: #344767;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -320,6 +245,7 @@
   font-size: 15px;
   font-weight: 700;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .stat-subtitle {
@@ -367,6 +293,7 @@
   font-size: 16px;
   font-weight: 700;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .payment-addbtn {
@@ -382,7 +309,7 @@
 }
 
 .payment-addbtn:hover {
-  background: #e40078;
+  background: #344767;
 }
 
 .payment-grid {
@@ -429,7 +356,7 @@
 }
 
 .visa-logo {
-  color: #e40078;
+  color: #344767;
   font-weight: 800;
   font-size: 13px;
   font-style: italic;
@@ -466,6 +393,7 @@
   font-size: 16px;
   font-weight: 700;
   margin: 0 0 24px 0;
+  color: #5a6b9e;
 }
 
 .billing-list {
@@ -497,6 +425,7 @@
   font-size: 14px;
   font-weight: 700;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .billing-actions {
@@ -525,11 +454,11 @@
 }
 
 .billing-edit {
-  color: #e40078;
+  color: #344767;
 }
 
 .billing-edit:hover {
-  color: #e40078;
+  color: #344767;
 }
 
 .billing-info-grid {
@@ -571,6 +500,7 @@
   font-size: 16px;
   font-weight: 700;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .transactions-date {
@@ -648,6 +578,7 @@
   font-size: 13px;
   font-weight: 600;
   margin: 0;
+  color: #5a6b9e;
 }
 
 .tx-date {
@@ -688,14 +619,6 @@
 
   .myaccount-stats-row {
     grid-template-columns: 1fr;
-  }
-
-  .myaccount-search input {
-    width: 100%;
-  }
-
-  .myaccount-header-right {
-    width: 100%;
   }
 
   .credit-card {

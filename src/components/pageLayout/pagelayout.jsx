@@ -40,7 +40,11 @@ export default function PageLayout({children, currentPage, onNavigate, onLogout}
         if (currentPage === "account") {
              return "My Account";
         }
-        
+
+        if (currentPage === "settings") {
+            return "Settings";
+        }
+
         if(currentPage=== "my-dependents"){
             return "My Dependents"
         }

@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import Login from "./pages/login/login";
 import PageLayout from "./components/pageLayout/pagelayout";
@@ -10,6 +8,7 @@ import FindMarketplace from "./pages/FindMarketPlace/findmarketplace";
 import MyDependents from "./pages/MyDependence/mydependents";
 import FindPharmacy from "./pages/FindPharmacy/findpharmacy";
 import MyAccount from "./pages/MyAccount/myaccount";
+import Settings from "./pages/Settings/settings";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -55,6 +54,10 @@ function App() {
 
         if (currentPage === "account") {
             return <MyAccount />;
+        }
+
+        if (currentPage === "settings") {
+            return <Settings />;
         }
 
         if (currentPage === "find-pharmacy") {

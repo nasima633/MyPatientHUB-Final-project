@@ -1,7 +1,6 @@
-
 import "./sidebar.css";
 
- export default function Sidebar({isOpen,searchText, currentPage,onNavClick, onNavigate}) {
+export default function Sidebar({isOpen,searchText, currentPage,onNavClick, onNavigate}) {
     // we take tis part in Arrays becuase it stores many data .
     const navItems = [
         {
@@ -73,25 +72,24 @@ import "./sidebar.css";
         (item) => item.label.toLowerCase() .includes( searchText.toLowerCase()));
 
 
-   function handleNavigation(event, page) {
-    event.preventDefault();
-    
-    if(
-        page === "dashboard" ||
-        page === "find-doctor" ||
-        page === "find-clinic" ||
-        page === "find-marketplace" ||
-        page === "my-dependents"||
-        page === "find-pharmacy"||
-        page === "find-pharmacy" ||
-        page === "my-dependents" ||
-        page === "account"
-    ) {
-        onNavigate(page);
-    }
+    function handleNavigation(event, page) {
+        event.preventDefault();
 
-    onNavClick();
-}
+        if(
+            page === "dashboard" ||
+            page === "find-doctor" ||
+            page === "find-clinic" ||
+            page === "find-marketplace" ||
+            page === "my-dependents" ||
+            page === "find-pharmacy" ||
+            page === "account" ||
+            page === "settings"
+        ) {
+            onNavigate(page);
+        }
+
+        onNavClick();
+    }
 
 
     function handleHelp() {
@@ -106,7 +104,8 @@ import "./sidebar.css";
     return (
         <nav
             className={`sidebar-navigation ${
-                isOpen ? "open" : ""
+                isOpen ? "open"
+                    : ""
             }`}
             id="sidebar-navigation"
             aria-label="Main navigation"
