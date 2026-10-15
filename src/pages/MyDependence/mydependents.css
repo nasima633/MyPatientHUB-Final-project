@@ -80,6 +80,7 @@ color: #8792a6;
 font-size: 12px;
 font-weight: 500;
 line-height: 1.4;
+margin-bottom: 10px;
 }
 
 .progress-step.active .progress-label,
@@ -106,6 +107,7 @@ background: #b000a8;
 width: 100%;
 max-width: 1100px;
 margin: 0 auto;
+margin-top: 80px;
 background: #ffffff;
 border-radius: 14px;
 padding: 35px;
