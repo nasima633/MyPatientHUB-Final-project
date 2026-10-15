@@ -81,7 +81,7 @@ const MyAccount = () => {
 
   return (
     <div className="myaccount-wrapper">
-      {/* ===== کارت اعتباری + Invoices ===== */}
+      
       <div className="myaccount-top-row">
         <div className="credit-card">
           <div className="credit-card-glow"></div>
@@ -136,7 +136,7 @@ const MyAccount = () => {
         </div>
       </div>
 
-      {/* ===== Stats ===== */}
+      
       <div className="myaccount-stats-row">
         <div className="stat-box">
           <div className="stat-top">
@@ -161,7 +161,7 @@ const MyAccount = () => {
         </div>
       </div>
 
-      {/* ===== ردیف پایین ===== */}
+      
       <div className="myaccount-bottom-row">
         <div className="myaccount-bottom-left">
           {/* Payment Method */}
@@ -197,7 +197,7 @@ const MyAccount = () => {
             </div>
           </div>
 
-          {/* Billing Info */}
+         
           <div className="billing-box">
             <h2 className="billing-title">Billing Information</h2>
 
@@ -231,7 +231,7 @@ const MyAccount = () => {
           </div>
         </div>
 
-        {/* Transactions */}
+        
         <div className="transactions-box">
           <div className="transactions-header">
             <h2>Your Transaction's</h2>

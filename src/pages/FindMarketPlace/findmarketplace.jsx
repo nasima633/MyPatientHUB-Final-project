@@ -117,7 +117,7 @@ function FindMarketplace() {
                 </div>
             </div>
 
-            {/* Categories */}
+           
             <div className="marketplace-categories">
                 {categories.map((category) => (
                     <button
@@ -137,7 +137,7 @@ function FindMarketplace() {
                 ))}
             </div>
 
-            {/* Marketplace Content */}
+            
             <section className="marketplace-content">
 
                 <div className="section-heading">
@@ -153,7 +153,7 @@ function FindMarketplace() {
                     </span>
                 </div>
 
-                {/* Products */}
+                
                 {filteredProducts.length > 0 ? (
                     <div className="products-grid">
                         {filteredProducts.map((product) => (

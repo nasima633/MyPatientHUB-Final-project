@@ -1,4 +1,3 @@
-/* ===== ساختار کلی ===== */
 .dashboard-section {
   padding: 35px 30px 20px;
 }
@@ -41,12 +40,12 @@
   object-fit: contain;
 }
 
-/* ===== کارت تمام عرض ===== */
+
 .full-width-card {
   width: 100%;
 }
 
-/* ===== هدر کارت ===== */
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -74,7 +73,7 @@
   flex-shrink: 0;
 }
 
-/* ===== Donut Chart ===== */
+
 .chart-card-content {
   display: flex;
   align-items: center;
@@ -151,7 +150,7 @@
   flex-shrink: 0;
 }
 
-/* ===== Health Card ===== */
+
 .health-card {
   overflow: hidden;
 }
@@ -198,19 +197,19 @@
   height: 80px;
 }
 
-/* ===== Radar Chart ===== */
+
 .radar-wrapper {
   width: 100%;
   height: 320px;
 }
 
-/* ===== Bar Chart ===== */
+
 .bar-wrapper {
   width: 100%;
   height: 320px;
 }
 
-/* ===== لیست Appointments ===== */
+
 .appointments-list {
   display: flex;
   flex-direction: column;
@@ -345,7 +344,7 @@
   font-weight: 500;
 }
 
-/* ===== ریسپانسیو ===== */
+
 @media (max-width: 900px) {
   .dashboard-section {
     padding: 25px 18px;

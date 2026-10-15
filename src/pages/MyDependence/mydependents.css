@@ -6,7 +6,7 @@ background: #f7f8fc;
 box-sizing: border-box;
 }
 
-/* Intro */
+
 
 .dependents-intro {
 margin-bottom: 30px;
@@ -26,7 +26,7 @@ font-size: 14px;
 line-height: 1.6;
 }
 
-/* Progress Steps */
+
 
 .step-progress {
 display: flex;
@@ -100,7 +100,7 @@ transition: background 0.3s ease;
 background: #b000a8;
 }
 
-/* Form Card */
+
 
 .dependent-form-card {
 width: 100%;
@@ -113,7 +113,7 @@ box-sizing: border-box;
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
-/* Form Header */
+
 
 .form-header {
 padding-bottom: 22px;
@@ -168,7 +168,7 @@ line-height: 1.5;
 margin-top: 30px;
 }
 
-/* Form Row */
+
 
 .form-row {
 display: grid;
@@ -181,7 +181,7 @@ margin-bottom: 20px;
 grid-template-columns: repeat(3, 1fr);
 }
 
-/* Form Group */
+
 
 .form-group {
 display: flex;
@@ -200,7 +200,7 @@ font-weight: 500;
 color: #b000a8;
 }
 
-/* Inputs */
+
 
 .form-group input,
 .form-group select,
@@ -243,7 +243,7 @@ border-color: #b000a8;
 box-shadow: 0 0 0 3px rgba(176, 0, 168, 0.08);
 }
 
-/* Validation */
+
 
 .error-message {
 display: block;
@@ -262,7 +262,7 @@ border-color: #d93025 !important;
 box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.08) !important;
 }
 
-/* Birth Date */
+
 
 .birth-date-fields {
 display: grid;
@@ -274,7 +274,7 @@ gap: 10px;
 min-width: 0;
 }
 
-/* File Upload */
+
 
 .form-group input[type="file"] {
 height: auto;
@@ -294,7 +294,7 @@ font-weight: 500;
 cursor: pointer;
 }
 
-/* Checkbox / Consent */
+
 
 .consent-box {
 display: grid;
@@ -333,7 +333,7 @@ border-color: #d93025 !important;
 background: #fff8f8;
 }
 
-/* Form Navigation */
+
 
 .form-navigation {
 display: flex;
@@ -356,7 +356,7 @@ cursor: pointer;
 transition: all 0.2s ease;
 }
 
-/* Back Button */
+
 
 .back-button {
 background: #ffffff;
@@ -374,7 +374,6 @@ opacity: 0.45;
 cursor: not-allowed;
 }
 
-/* Next / Complete Button */
 
 .next-button {
 background: #b000a8;
@@ -394,7 +393,6 @@ box-shadow: 0 5px 12px rgba(176, 0, 168, 0.18);
 transform: translateY(0);
 }
 
-/* Step Animation */
 
 .form-content {
 animation: fadeIn 0.3s ease;
@@ -412,7 +410,7 @@ transform: translateY(0);
 }
 }
 
-/* Responsive - Tablet */
+
 
 @media (max-width: 900px) {
 .my-dependents-page {
@@ -432,7 +430,7 @@ grid-template-columns: repeat(2, 1fr);
 }
 }
 
-/* Responsive - Mobile */
+
 
 @media (max-width: 650px) {
 .my-dependents-page {
@@ -501,7 +499,7 @@ grid-template-columns: auto 1fr;
 }
 }
 
-/* Very Small Screens */
+
 
 @media (max-width: 400px) {
 .my-dependents-page {

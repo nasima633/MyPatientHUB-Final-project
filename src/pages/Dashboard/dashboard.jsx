@@ -22,7 +22,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// فیکس آیکون marker پیش‌فرض leaflet
+
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png",
@@ -31,7 +31,7 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function Dashboard() {
-  // ===== داده‌های Donut Chart =====
+ 
   const clinicsData = [
     { name: "Klinik Lee Healthcare", value: 19, color: "#f28bb7" },
     { name: "Klinik Bandar Baru Nilai", value: 4, color: "#5b9bd5" },
@@ -56,7 +56,7 @@ export default function Dashboard() {
     { name: "Uber Eats", value: 10, color: "#8fd3e8" },
   ];
 
-  // ===== داده‌های Health =====
+  
   const healthData = [
     { month: "Jan", value: 57 },
     { month: "Feb", value: 60 },
@@ -81,7 +81,7 @@ export default function Dashboard() {
     { month: "Sep", value: 72 },
   ];
 
-  // ===== داده‌های Radar (Chronic Wellness) =====
+  
   const wellnessData = [
     { year: "2017", Malaria: 60, Cold: 30, Typhoid: 45, Cough: 90 },
     { year: "2018", Malaria: 40, Cold: 70, Typhoid: 55, Cough: 60 },
@@ -91,7 +91,7 @@ export default function Dashboard() {
     { year: "2022", Malaria: 55, Cold: 65, Typhoid: 45, Cough: 75 },
   ];
 
-  // ===== داده‌های Appointment (Stacked Bar) =====
+  
   const appointmentData = [
     { month: "Jan", Emergency: 44, Examination: 13, Consultation: 11, Routine: 21 },
     { month: "Feb", Emergency: 55, Examination: 23, Consultation: 17, Routine: 7 },
@@ -101,14 +101,14 @@ export default function Dashboard() {
     { month: "Jun", Emergency: 43, Examination: 27, Consultation: 14, Routine: 8 },
   ];
 
-  // ===== لیست دکترها =====
+ 
   const doctors = [
     { name: "Dr. Mustafa", role: "Emergency", date: "Tuesday, April 5" },
     { name: "DR. KHIRULLAH", role: "consultation", date: "Friday, November 2" },
     { name: "DR. Bilal", role: "Eximination", date: "Monday, March 9" },
   ];
 
-  // ===== جدول دکترها =====
+  
   const doctorsTable = [
     { name: "Dr Ahmad", speciality: "Neurologist", fee: "RM 100", discount: "10%", icon: "👨‍⚕️" },
     { name: "Dr Azam Shah", speciality: "Aurthopedic MD", fee: "RM 130", discount: "20%", icon: "👨‍⚕️" },
@@ -116,7 +116,7 @@ export default function Dashboard() {
     { name: "Dr Affan", speciality: "Cardiologist", fee: "RM 400", discount: "40%", icon: "👩‍⚕️" },
   ];
 
-  // ===== Donut Chart =====
+  
   const DonutChart = ({ data }) => (
     <div className="donut-chart">
       <ResponsiveContainer width="100%" height="100%">
@@ -143,7 +143,7 @@ export default function Dashboard() {
     </div>
   );
 
-  // ===== کارت Promotion =====
+  
   const PromotionCard = ({ data, buttonText = "MORE DETAILS" }) => (
     <div className="chart-card-content">
       <div className="chart-side">
@@ -163,7 +163,7 @@ export default function Dashboard() {
     </div>
   );
 
-  // ===== کارت هدر با آیکون ! =====
+  
   const CardHeader = ({ title, showAlert = false }) => (
     <div className="card-header">
       <h3>{title}</h3>
@@ -176,7 +176,7 @@ export default function Dashboard() {
       <section className="dashboard-section">
         <h2 id="dashboard-welcome-txt">Welcome to MyPatientHUB!</h2>
 
-        {/* ===== ردیف ۱: Promotion Clinics + Pharmacies ===== */}
+        
         <div className="dashboard-cards">
           <div className="cards">
             <CardHeader title="Promotion by Clinics" showAlert />
@@ -189,7 +189,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ===== ردیف ۲: Smart Market + Health + Symptoms ===== */}
+        
         <div className="dashboard-cards">
           <div className="cards">
             <CardHeader title="Smart Market Usage by app" showAlert />
@@ -275,7 +275,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ===== ردیف ۴: Map + Previous Appointments ===== */}
+        
         <div className="dashboard-cards">
           <div className="cards">
             <MapContainer
@@ -321,7 +321,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ===== ردیف ۵: Doctors Table (تمام عرض) ===== */}
+        
         <div className="dashboard-cards">
           <div className="cards full-width-card">
             <CardHeader title="Doctors" />
