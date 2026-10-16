@@ -4,7 +4,6 @@ import Sidebar from "../sidebar/sidebar";
 import Footer from "../footer/footer";
 import "./pagelayout.css";
 
-
 export default function PageLayout({children, currentPage, onNavigate, onLogout}) {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -28,39 +27,33 @@ export default function PageLayout({children, currentPage, onNavigate, onLogout}
         if (currentPage === "find-doctor") {
             return "Find Doctor";
         }
-
         if (currentPage === "find-clinic") {
             return "Find Clinic";
         }
-
         if (currentPage === "find-marketplace") {
             return "Find MarketPlace";
         }
-
         if (currentPage === "account") {
-             return "My Account";
+            return "My Account";
         }
-
         if (currentPage === "settings") {
             return "Settings";
         }
-
-        if(currentPage=== "my-dependents"){
-            return "My Dependents"
+        if (currentPage === "my-dependents") {
+            return "My Dependents";
         }
-
         return "Dashboard";
     }
 
     return (
         <div className="page-layout">
-
             <Header
                 pageTitle={getPageTitle()}
                 onMenuClick={handleMenuClick}
                 searchText={searchText}
                 onSearchChange={handleSearchChange}
                 onLogout={onLogout}
+                onNavigate={onNavigate}
             />
 
             <Sidebar
