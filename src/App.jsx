@@ -57,7 +57,7 @@ function App() {
         }
 
         if (currentPage === "settings") {
-            return <Settings />;
+            return <Settings onLogout={handleLogout} />;
         }
 
         if (currentPage === "find-pharmacy") {

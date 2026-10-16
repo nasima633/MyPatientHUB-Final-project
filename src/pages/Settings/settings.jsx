@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./settings.css";
 
-const Settings = () => {
+const Settings = ({ onLogout }) => {
+  const [invisible, setInvisible] = useState(false);
+
   const profileRef = useRef(null);
   const basicInfoRef = useRef(null);
   const changePasswordRef = useRef(null);
@@ -25,23 +27,22 @@ const Settings = () => {
       region: "EU",
       active: true,
     },
-    {
-      device: "Chrome on macOS",
-      sub: "",
-      region: "US",
-      active: false,
-    },
-    {
-      device: "Safari on iPhone",
-      sub: "",
-      region: "US",
-      active: false,
-    },
+    { device: "Chrome on macOS", sub: "", region: "US", active: false },
+    { device: "Safari on iPhone", sub: "", region: "US", active: false },
   ];
 
   const scrollToSection = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleDeleteAccount = () => {
+    const confirmed = window.confirm(
+      "Are you sure? This will log you out and delete your account."
+    );
+    if (confirmed && onLogout) {
+      onLogout();
     }
   };
 
@@ -62,12 +63,26 @@ const Settings = () => {
         </aside>
 
         <main className="settings-content">
-          <div className="settings-profile-card" ref={profileRef}>
+          <div
+            className={`settings-profile-card ${
+              invisible ? "invisible-mode" : ""
+            }`}
+            ref={profileRef}
+          >
             <div className="settings-profile-left">
-              <div className="settings-avatar">👩</div>
+              <div className="settings-avatar">
+                {invisible ? "👻" : "👩"}
+              </div>
               <div>
-                <p className="settings-username">Bahar Ahmadi</p>
-                <p className="settings-role">Patient</p>
+                <p className="settings-username">
+                  {invisible ? "●●●●● ●●●●●" : "Bahar Ahmadi"}
+                </p>
+                <p className="settings-role">
+                  {invisible ? "Hidden" : "Patient"}
+                  {invisible && (
+                    <span className="invisible-badge">INVISIBLE</span>
+                  )}
+                </p>
               </div>
             </div>
 
@@ -76,13 +91,16 @@ const Settings = () => {
                 Switch to invisible
               </span>
               <label className="settings-switch">
-                <input type="checkbox" defaultChecked />
+                <input
+                  type="checkbox"
+                  checked={invisible}
+                  onChange={() => setInvisible(!invisible)}
+                />
                 <span className="settings-slider" />
               </label>
             </div>
           </div>
 
-          {/* ===== Basic Info ===== */}
           <section className="settings-section" ref={basicInfoRef}>
             <h2 className="settings-section-title">Basic Info</h2>
 
@@ -162,7 +180,6 @@ const Settings = () => {
             </div>
           </section>
 
-          {/* ===== Change Password ===== */}
           <section className="settings-section" ref={changePasswordRef}>
             <h2 className="settings-section-title">Change Password</h2>
 
@@ -192,7 +209,6 @@ const Settings = () => {
             </div>
           </section>
 
-          {/* ===== 2FA ===== */}
           <section className="settings-section" ref={twoFARef}>
             <div className="settings-section-header">
               <h2 className="settings-section-title">
@@ -226,7 +242,6 @@ const Settings = () => {
             </div>
           </section>
 
-          {/* ===== Sessions ===== */}
           <section className="settings-section" ref={sessionsRef}>
             <h2 className="settings-section-title">Sessions</h2>
             <p className="settings-desc">
@@ -240,9 +255,7 @@ const Settings = () => {
                   <span className="settings-device-icon">🖥</span>
                   <div>
                     <p className="settings-device-name">{s.device}</p>
-                    {s.sub && (
-                      <p className="settings-device-sub">{s.sub}</p>
-                    )}
+                    {s.sub && <p className="settings-device-sub">{s.sub}</p>}
                   </div>
                 </div>
 
@@ -257,7 +270,6 @@ const Settings = () => {
             ))}
           </section>
 
-          {/* ===== Delete Account ===== */}
           <section className="settings-section" ref={deleteAccountRef}>
             <h2 className="settings-section-title">Delete Account</h2>
             <p className="settings-desc">
@@ -281,7 +293,10 @@ const Settings = () => {
 
               <div className="settings-delete-btns">
                 <button className="settings-outline-btn">DEACTIVATE</button>
-                <button className="settings-danger-btn">
+                <button
+                  className="settings-danger-btn"
+                  onClick={handleDeleteAccount}
+                >
                   DELETE ACCOUNT
                 </button>
               </div>
