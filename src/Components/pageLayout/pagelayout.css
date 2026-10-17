@@ -1,0 +1,19 @@
+.page-layout {
+    min-height: 100vh;
+}
+
+.page-content {
+    margin-left: 255px;
+    padding: 85px 0 20px;
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .page-content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 75px;
+    }
+}

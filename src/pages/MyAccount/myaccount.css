@@ -1,0 +1,659 @@
+.myaccount-wrapper {
+  min-height: 100vh;
+  background: #f8f9fb;
+  padding: 24px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: #1b2559;
+  box-sizing: border-box;
+}
+
+.myaccount-top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.credit-card {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  padding: 24px;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e40078 0%, #c00065 50%, #8f004f 100%);
+  box-shadow: 0 10px 30px rgba(11, 20, 55, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.credit-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(255, 255, 255, 0.25),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.credit-card-wifi {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.credit-card-number {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 22px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.credit-card-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.credit-card-info {
+  display: flex;
+  gap: 40px;
+}
+
+.cc-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.cc-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cc-logo {
+  display: flex;
+  margin-right: 4px;
+}
+
+.cc-circle-red,
+.cc-circle-yellow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: block;
+}
+
+.cc-circle-red {
+  background: #eb001b;
+}
+
+.cc-circle-yellow {
+  background: #f79e1b;
+  margin-left: -14px;
+  opacity: 0.9;
+}
+
+.invoices-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.invoices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.invoices-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.invoices-viewall {
+  font-size: 11px;
+  font-weight: 600;
+  color: #e40078;
+  background: none;
+  border: 1px solid rgba(0, 117, 255, 0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.invoices-viewall:hover {
+  background: rgba(0, 117, 255, 0.05);
+}
+
+.invoices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  max-height: 340px;
+  padding-right: 4px;
+}
+
+.invoices-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inv-date {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 2px 0;
+  color: #5a6b9e;
+}
+
+.inv-id {
+  font-size: 11px;
+  color: #a0aec0;
+  margin: 0;
+}
+
+.inv-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inv-price {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.inv-pdf {
+  font-size: 11px;
+  font-weight: 600;
+  color: #344767;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.invoices-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.invoices-list::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.myaccount-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.stat-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #e40078;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.stat-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.stat-subtitle {
+  font-size: 11px;
+  color: #a0aec0;
+  margin: 2px 0 0 0;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.myaccount-bottom-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.myaccount-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.payment-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.payment-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.payment-addbtn {
+  background: #e40078;
+  color: #fff;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.payment-addbtn:hover {
+  background: #344767;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.payment-card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.payment-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mc-logo {
+  display: flex;
+}
+
+.mc-red,
+.mc-yellow {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+}
+
+.mc-red {
+  background: #eb001b;
+}
+
+.mc-yellow {
+  background: #f79e1b;
+  margin-left: -6px;
+  opacity: 0.9;
+}
+
+.visa-logo {
+  color: #344767;
+  font-weight: 800;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.payment-number {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a5568;
+  letter-spacing: 0.5px;
+}
+
+.payment-edit {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.payment-edit:hover {
+  color: #1b2559;
+}
+
+.billing-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.billing-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #5a6b9e;
+}
+
+.billing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.billing-item {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.billing-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.billing-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.billing-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.billing-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.billing-actions button {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: 0.2s;
+}
+
+.billing-delete {
+  color: #e53e3e;
+}
+
+.billing-delete:hover {
+  color: #c53030;
+}
+
+.billing-edit {
+  color: #344767;
+}
+
+.billing-edit:hover {
+  color: #344767;
+}
+
+.billing-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 12px;
+}
+
+.billing-info-grid p {
+  color: #a0aec0;
+  margin: 0;
+}
+
+.billing-info-grid span {
+  color: #e40078;
+  font-weight: 500;
+}
+
+.transactions-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.transactions-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.transactions-date {
+  font-size: 11px;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.transactions-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tx-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 16px 0;
+}
+
+.tx-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tx-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.tx-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tx-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+
+.tx-icon.green {
+  border-color: #48bb78;
+  color: #48bb78;
+}
+
+.tx-icon.red {
+  border-color: #fc8181;
+  color: #fc8181;
+}
+
+.tx-icon.gray {
+  border-color: #cbd5e0;
+  color: #a0aec0;
+}
+
+.tx-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  color: #5a6b9e;
+}
+
+.tx-date {
+  font-size: 11px;
+  color: #a0aec0;
+  margin: 2px 0 0 0;
+}
+
+.tx-amount {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tx-amount.green {
+  color: #48bb78;
+}
+
+.tx-amount.red {
+  color: #fc8181;
+}
+
+.tx-amount.gray {
+  color: #a0aec0;
+}
+
+@media (max-width: 992px) {
+  .myaccount-top-row,
+  .myaccount-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .myaccount-wrapper {
+    padding: 16px;
+  }
+
+  .myaccount-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .credit-card {
+    height: 200px;
+    padding: 20px;
+  }
+
+  .credit-card-number {
+    font-size: 18px;
+    gap: 12px;
+  }
+
+  .credit-card-info {
+    gap: 20px;
+  }
+
+  .cc-value {
+    font-size: 13px;
+  }
+
+  .cc-circle-red,
+  .cc-circle-yellow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+}
